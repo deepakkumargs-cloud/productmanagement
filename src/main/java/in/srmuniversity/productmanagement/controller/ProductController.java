@@ -18,25 +18,29 @@ public class ProductController {
     @Autowired
     private FileUploadHelper fileUploadHelper;
 
-    // @CrossOrigin(origins = "http://localhost:63456/")
+    // Get API
+    // All Products
     @RequestMapping("/products")
     public List<Product> getAllProducts() {
         return service.getAllProducts();
     }
 
-    // @CrossOrigin(origins = "http://localhost:63456/#/MenuPage")
+    // Get API
+    // Single Product Using the Product ID
     @RequestMapping("/products/{id}")
     public Product getProduct(@PathVariable int id) {
         return service.getProduct(id);
     }
 
-    // @CrossOrigin(origins = "http://localhost:63456/#/MenuPage")
+    // Post API
+    // Adding the Product and Image using the multipart file.
     @RequestMapping(method = RequestMethod.POST, value = "product/add")
     public void addProduct(@RequestParam("image") MultipartFile file, @RequestParam("id") int id,
             @RequestParam("name") String name, @RequestParam("price") double price,
             @RequestParam("description") String description,
             @RequestParam("quantity") int quantity) {
 
+        // Initializing the image url variable
         String imageUrl = "";
 
         try {
@@ -62,7 +66,9 @@ public class ProductController {
 
             }
 
+            // Creating a object of Product
             Product product = new Product(id, name, price, description, imageUrl, quantity);
+            // Passing the final product object to save into the database [IBM's DB2]
             service.addProduct(product);
         } catch (Exception e) {
             // e.printStackTrace();

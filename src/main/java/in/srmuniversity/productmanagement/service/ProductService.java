@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class ProductService {
 
+    // Injecting Dependancy
     @Autowired
     private ProductRepository productRepository;
 

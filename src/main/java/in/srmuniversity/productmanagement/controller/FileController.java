@@ -7,6 +7,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import in.srmuniversity.productmanagement.helper.FileUploadHelper;
 
+// Dummay file controller
+
 @RestController
 public class FileController {
 

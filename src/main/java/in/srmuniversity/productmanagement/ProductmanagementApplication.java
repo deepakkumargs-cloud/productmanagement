@@ -18,6 +18,8 @@ public class ProductmanagementApplication {
 		SpringApplication.run(ProductmanagementApplication.class, args);
 	}
 
+	// Cors Enabling
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
